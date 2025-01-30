@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ninja's Image Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container disable">
+      <h2>Ninja's Image Editor</h2>
+      <div class="wrapper">
+        <div class="editor-panel disable">
+          <div class="filter">
+            <label class="title">Filters</label>
+            <div class="options">
+              <!-- Create all the filters button here -->
+              <button
+                id="saturation"
+                class="btn btn-filter"
+                name="Saturation"
+                onclick="filterButton(event)"
+                selected="true"
+              >
+                Saturation
+              </button>
+              <button
+                id="brightness"
+                class="btn btn-filter"
+                name="Brightness"
+                onclick="filterButton(event)"
+              >
+                Brightness
+              </button>
+              <button
+                id="grayscale"
+                class="btn btn-filter"
+                name="Grayscale"
+                onclick="filterButton(event)"
+              >
+                Grayscale
+              </button>
+              <button
+                id="inversion"
+                class="btn btn-filter"
+                name="Inversion"
+                onclick="filterButton(event)"
+              >
+                Inversion
+              </button>
+            </div>
+            <div class="slider">
+              <div class="filter-info">
+                <p class="name">Brightness</p>
+                <p class="value">100%</p>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="200"
+                value="100"
+                class="seek-bar"
+              />
+            </div>
+          </div>
+          <div class="rotate">
+            <label class="title">Rotate & Flip</label>
+            <div class="options">
+              <!-- Create all rotate and flips button here -->
+              <button
+                id="left"
+                name="left"
+                onclick="rotateButton(event)"
+                class="btn-rotate"
+              >
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+              <button
+                id="right"
+                name="right"
+                onclick="rotateButton(event)"
+                class="btn-rotate"
+              >
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
+              <button
+                id="horizontal"
+                name="horizontal"
+                onclick="rotateButton(event)"
+                class="btn-rotate"
+              >
+                <i class="bx bx-reflect-horizontal bx-flip-vertical"></i>
+              </button>
+              <button
+                id="vertical"
+                name="vertical"
+                onclick="rotateButton(event)"
+                class="btn-rotate"
+              >
+                <i class="bx bx-reflect-vertical bx-flip-vertical"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Add the first showing UI image here(for ex. a image of girl with camera as we shown in our video.) -->
+        <div class="preview-img">
+          <img src="sunset.webp" id="img-preview" class="img" />
+        </div>
+      </div>
+      <div class="controls">
+        <button class="reset-filter disable" onclick="resetChanges()">
+          Reset Filters
+        </button>
+        <div class="row">
+          <input
+            type="file"
+            class="file-input"
+            id="file-input"
+            accept="image/*"
+            hidden
+          />
+          <!-- Create the choose and save button here -->
+          <button type="button" onclick="chooseImage()" class="choose-img btn">
+            Choose Image
+          </button>
+          <button
+            type="button"
+            class="save-img btn disable"
+            onclick="downloadImage()"
+          >
+            Save Image
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
